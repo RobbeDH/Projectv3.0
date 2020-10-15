@@ -14,7 +14,7 @@
 <header>
     <nav>
         <ul>
-            <li><a href="index.html" > Home </a></li>
+            <li><a href="index.jsp" > Home </a></li>
             <li class = "active"><a href="overzicht.jsp"> Overzicht </a></li>
             <li><a href="toevoegen.html"> Toevoegen </a></li>
         </ul>
