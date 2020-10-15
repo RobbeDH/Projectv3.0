@@ -1,3 +1,6 @@
+<%@ page import="Domain.model.Kamp" %>
+<%@ page import="Domain.db.KampDb" %>
+<% KampDb kampDb = new KampDb(); %>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -12,40 +15,35 @@
     <nav>
         <ul>
             <li><a href="index.html" > Home </a></li>
-            <li class = "active"><a href="overzicht.html"> Overzicht </a></li>
+            <li class = "active"><a href="overzicht.jsp"> Overzicht </a></li>
             <li><a href="toevoegen.html"> Toevoegen </a></li>
         </ul>
     </nav>
 </header>
 <main>
-    <h2>Kampen</h2>
+    <h1>Kampen</h1>
         <table>
-            <tr>
+            <thead>
                 <th>Jaar</th>
                 <th>Plaats</th>
                 <th>Kampthema</th>
                 <th>Score</th>
                 <th>Verwijder</th>
-            </tr>
+            </thead>
+            <tbody>
+            <% for(Kamp kamp : kampDb.getKampen()) { %>
             <tr>
-                <td>2010</td>
-                <td>Dessel</td>
-                <td>De oude Grieken</td>
-                <td>7</td>
+                <td><%=kamp.getJaar()%></td>
+                <td><%=kamp.getPlaats()%></td>
+                <td><%=kamp.getThema()%></td>
+                <td><%=kamp.getScore()%></td>
                 <td><a href="verwijder.html"> verwijderen </a> </td>
             </tr>
-            <tr>
-                <td>2011</td>
-                <td>Opoeteren</td>
-                <td>Robin Hood</td>
-                <td>8</td>
-                <td><a href="verwijder.html"> verwijderen </a> </td>
-            </tr>
+            <% } %>
+            </tbody>
         </table>
-    <p>
-        Aantal kampen: 2
-        Gemiddelde score kampen: 7.5
-    </p>
+    <p>Aantal kampen: <%=kampDb.getAantalKampen() %></p>
+    <p>Gemiddelde score kampen: <%=kampDb.getGemiddeldeScore() %></p>
 </main>
 </body>
 </html>

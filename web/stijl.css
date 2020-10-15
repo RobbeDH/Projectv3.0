@@ -1,7 +1,6 @@
 html{
     font-family: 'Maven Pro', Verdana , Arial, sans-serif;
     margin: auto auto auto auto;
-    text-align: center;
     font-size: 16px;
 }
 
@@ -66,7 +65,7 @@ article a{
 
 main article p{
     box-sizing: border-box;
-    width: auto;
+    width: 80%;
     max-width: 1000px;
     height: auto;
     margin: auto;
@@ -93,34 +92,38 @@ footer{
 }
 
 form {
-    width: 98%;
+    width: 300px;
     margin: 0 auto;
     padding: 0.2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     font-weight: bold;
 }
 
+form p{
+    display: block;
+    text-align: left;
+
+}
+
+form p:last-child{
+    text-align: right;
+}
+
 label {
-    display: flex;
-    text-align: center;
+    text-align: left;
     margin-top: 0;
     margin-bottom: 1em;
     box-sizing: border-box;
-    align-items: center;
-    
 }
 
 input, textarea, select {
-    display: flex;
+    display: block;
     border: 1px solid #456;
     border-radius: 3px;
     box-sizing: border-box;
     font-family: inherit;
     font-size: 100%;
     padding: 0 .2em 0.2em;
-    align-items: center;
+    width: 100%;
 }
 
 .home article {
@@ -187,6 +190,8 @@ Button {
     text-decoration:none;
     text-shadow:0px 1px 0px #cc9f52;
 }
+
+
 Button:hover {
     background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
     background-color:#fb9e25;
@@ -215,7 +220,7 @@ table td, table th {
 }
 table thead tr {
     height: 60px;
-    background: #36304a;
+    background: darkorange;
 }
 table tbody tr {
     height: 50px;
@@ -277,7 +282,7 @@ tbody tr:hover {
         color: #ffffff;
         text-align: center;
         padding: 2em 6em;
-    
+
     }
 
     .home article {
@@ -288,7 +293,7 @@ tbody tr:hover {
         align-items: center;
         column-gap: 10px;
     }
-    
+
     article {
         padding: 1em;
         display: flex;
@@ -296,32 +301,32 @@ tbody tr:hover {
         align-items: center;
         column-gap: 5px;
     }
-    
+
     .home article img {
         min-width: 0px;
         max-width: 400px;
         height: auto;
         grid-row: 3;
     }
-    
+
     .home article p {
         text-align: left;
         font-size: smaller;
     }
-    
+
     article img {
         min-width: 0px;
         max-width: 300px;
         height: auto;
         grid-row: 2/4;
     }
-    
+
     article p {
         grid-column: 2;
         text-align: left;
         font-size: smaller;
     }
-    
+
     article h1 {
         grid-column: 2/4;
         font-size: 1em;
