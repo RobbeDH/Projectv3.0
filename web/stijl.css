@@ -171,6 +171,14 @@ article p {
     text-align: left;
 }
 
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
 article h1 {
     grid-column: 2/4;}
 
@@ -208,7 +216,7 @@ table {
     background: white;
     border-radius: 10px;
     overflow: hidden;
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
     position: relative;
 }

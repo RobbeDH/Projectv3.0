@@ -13,12 +13,13 @@
         <ul>
             <li><a href="index.jsp" > Home </a></li>
             <li><a href="overzicht.jsp"> Overzicht </a></li>
-            <li class="active"><a href="toevoegen.html"> Toevoegen </a></li>
+            <li class="active"><a href="toevoegen.jsp"> Toevoegen </a></li>
         </ul>
     </nav>
 </header>
 <main>
-    <form>
+    <h1>Kamp toevoegen</h1>
+    <form method="post" action="">
         <p>
             <label for="jaar">Jaar</label>
             <input id="jaar" name="jaar" type="text" placeholder="Jaar kamp" required="">
@@ -29,7 +30,7 @@
         </p>
         <p>
             <label for="kampthema">Kampthema</label>
-            <input id="kampthema" name="score" type="text" placeholder="kampthema" required="">
+            <input id="kampthema" name="kampthema" type="text" placeholder="kampthema" required="">
         </p>
         <p>
             <label for="Score">Score</label>

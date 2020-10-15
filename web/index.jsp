@@ -13,12 +13,12 @@
         <ul>
             <li class="active"><a href="index.jsp"> Home </a></li>
             <li><a href="overzicht.jsp"> Overzicht </a></li>
-            <li><a href="toevoegen.html"> Toevoegen </a></li>
+            <li><a href="toevoegen.jsp"> Toevoegen </a></li>
         </ul>
     </nav>
 </header>
 <main>
-    <h2>Kampen</h2>
+    <h1>Kampen</h1>
     <article>
         <p>Op deze website vind je alle kampen terug die ik al megedaan heb
             Het jaar, kampplaats, kampthema en persoonlijke score op 10 worden bijgehouden.</p>
