@@ -15,7 +15,7 @@
     <nav>
         <ul>
             <li><a href="Servlet?command=home" > Home </a></li>
-            <li class = "active"><a href="Servlet?command=overzicht"> Overzicht </a></li>
+            <li class="active"><a href="Servlet?command=overzicht"> Overzicht </a></li>
             <li><a href="toevoegen.jsp"> Toevoegen </a></li>
             <li><a href="zoekKamp.jsp"> Zoek Kamp</a></li>
         </ul>

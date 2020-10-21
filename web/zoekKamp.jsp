@@ -21,21 +21,21 @@
             <li><a href="Servlet?command=home"> Home </a></li>
             <li><a href="Servlet?command=overzicht"> Overzicht </a></li>
             <li><a href="toevoegen.jsp"> Toevoegen </a></li>
-            <li class = "active"><a href="zoekKamp.jsp"> Zoek Kamp</a></li>
+            <li class="active"><a href="zoekKamp.jsp"> Zoek Kamp</a></li>
         </ul>
     </nav>
 </header>
 <body>
-    <h1>Kamp zoeken</h1>
-    <form method="GET" action="Servlet">
-        <p>
-            <label for="jaar"> Jaar </label>
-            <input id="jaar" name="jaar">
-            <input type="hidden" name="command" value="zoekKamp">
-        </p>
-        <p>
-            <button type="submit">Zoek</button>
-        </p>
-    </form>
+<h1>Kamp zoeken</h1>
+<form method="GET" action="Servlet">
+    <p>
+        <label for="jaar"> Jaar </label>
+        <input id="jaar" name="jaar">
+        <input type="hidden" name="command" value="zoekKamp">
+    </p>
+    <p>
+        <button type="submit">Zoek</button>
+    </p>
+</form>
 </body>
 </html>

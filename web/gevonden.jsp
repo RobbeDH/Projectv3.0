@@ -28,9 +28,9 @@
 </header>
 <main>
     <h1>Kamp gevonden</h1>
-<p>
-    <%=kamp.getJaar() + " kampplaats: " + kamp.getPlaats() + " thema: " + kamp.getThema()%>
-</p>
+    <p>
+        <%=kamp.getJaar() + " kampplaats: " + kamp.getPlaats() + " thema: " + kamp.getThema()%>
+    </p>
 </main>
 </body>
 </html>
