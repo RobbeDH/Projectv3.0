@@ -1,6 +1,6 @@
 <%@ page import="Domain.model.Kamp" %>
 <%@ page import="Domain.db.KampDb" %>
-<% KampDb kampDb = new KampDb(); %>
+<%@ page import="java.util.Collection" %>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -14,14 +14,18 @@
 <header>
     <nav>
         <ul>
-            <li><a href="index.jsp" > Home </a></li>
-            <li class = "active"><a href="overzicht.jsp"> Overzicht </a></li>
+            <li><a href="Servlet?command=home" > Home </a></li>
+            <li class = "active"><a href="Servlet?command=overzicht"> Overzicht </a></li>
             <li><a href="toevoegen.jsp"> Toevoegen </a></li>
+            <li><a href="zoekKamp.jsp"> Zoek Kamp</a></li>
         </ul>
     </nav>
 </header>
 <main>
     <h1>Kampen</h1>
+    <%
+        Collection<Kamp> kampen = (Collection<Kamp>) request.getAttribute("kampen");
+    %>
         <table>
             <thead>
                 <th>Jaar</th>
@@ -31,19 +35,19 @@
                 <th>Verwijder</th>
             </thead>
             <tbody>
-            <% for(Kamp kamp : kampDb.getKampen()) { %>
+            <% for(Kamp kamp : kampen) { %>
             <tr>
                 <td><%=kamp.getJaar()%></td>
                 <td><%=kamp.getPlaats()%></td>
                 <td><%=kamp.getThema()%></td>
                 <td><%=kamp.getScore()%></td>
-                <td><a href="verwijder.html"> verwijderen </a> </td>
+                <td><a href="Servlet?command=verwijder&jaar=<%=kamp.getJaar()%>&thema=<%=kamp.getThema()%>"> verwijderen </a> </td>
             </tr>
             <% } %>
             </tbody>
         </table>
-    <p>Aantal kampen: <%=kampDb.getAantalKampen() %></p>
-    <p>Gemiddelde score kampen: <%=kampDb.getGemiddeldeScore() %></p>
+    <p>Aantal kampen: <%=request.getAttribute("aantal") %></p>
+    <p>Gemiddelde score kampen: <%=request.getAttribute("score") %></p>
 </main>
 </body>
 </html>
