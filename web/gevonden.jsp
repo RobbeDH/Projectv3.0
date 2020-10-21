@@ -29,7 +29,7 @@
 <main>
     <h1>Kamp gevonden</h1>
 <p>
-    <%=kamp.getJaar() + " " + kamp.getPlaats() + " " + kamp.getThema()%>
+    <%=kamp.getJaar() + " kampplaats: " + kamp.getPlaats() + " thema: " + kamp.getThema()%>
 </p>
 </main>
 </body>
