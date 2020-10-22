@@ -35,7 +35,7 @@
         </p>
         <p>
             <label for="Score">Score</label>
-            <input id="Score"  name="score" placeholder="Score op 10" required="">
+            <input id="Score"  name="score" type="number" placeholder="Score op 10" required="">
         </p>
         <p>
             <button type="submit">Bevestig</button>
