@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @WebServlet("/Servlet")
 public class Servlet extends HttpServlet {
-    KampDb kampen = new KampDb();
+    private KampDb kampen = new KampDb();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
@@ -64,7 +64,9 @@ public class Servlet extends HttpServlet {
         String kampthema = request.getParameter("kampthema");
         String scoreform = request.getParameter("score");
         int score = Integer.parseInt(scoreform);
-
+        if (jaar.isEmpty() || kampplaats.isEmpty() || kampthema.isEmpty() || scoreform.isEmpty()){
+            return "toevoegen.jsp";
+        }
         Kamp kamp = new Kamp(kampplaats, kampthema, score, jaar);
         kampen.voegToe(kamp);
         request.setAttribute("kampen", kampen.getKampen());
@@ -92,10 +94,7 @@ public class Servlet extends HttpServlet {
         Kamp kamp = kampen.vindKamp(jaar);
 
         kampen.verwijderKamp(kamp);
-        request.setAttribute("kampen", kampen.getKampen());
-        request.setAttribute("aantal", kampen.getAantalKampen());
-        request.setAttribute("score", kampen.getGemiddeldeScore());
-        return "overzicht.jsp";
+        return overzicht(request,response);
     }
 
     private String zoekKamp(HttpServletRequest request, HttpServletResponse response) {

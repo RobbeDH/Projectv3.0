@@ -116,6 +116,7 @@ label {
 }
 
 input, textarea, select {
+    margin-top: 1em;
     display: block;
     border: 1px solid #456;
     border-radius: 3px;
