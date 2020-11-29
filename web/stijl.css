@@ -104,6 +104,10 @@ form p{
 
 }
 
+form p .knop{
+    text-align: right;
+}
+
 form p:last-child{
     text-align: right;
 }
@@ -125,6 +129,21 @@ input, textarea, select {
     font-size: 100%;
     padding: 0 .2em 0.2em;
     width: 100%;
+}
+
+.error{
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('https://i.imgur.com/GnyDvKN.png');
+}
+
+.info, .success, .warning, .error, .validation {
+    border: 1px solid;
+    margin: auto;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    width: 60%;
 }
 
 .home article {

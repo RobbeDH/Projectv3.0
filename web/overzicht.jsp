@@ -1,6 +1,6 @@
-<%@ page import="Domain.model.Kamp" %>
-<%@ page import="Domain.db.KampDb" %>
-<%@ page import="java.util.Collection" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -11,43 +11,34 @@
     <title>Kampen | Overzicht</title>
 </head>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li><a href="Servlet?command=home" > Home </a></li>
-            <li class="active"><a href="Servlet?command=overzicht"> Overzicht </a></li>
-            <li><a href="toevoegen.jsp"> Toevoegen </a></li>
-            <li><a href="zoekKamp.jsp"> Zoek Kamp</a></li>
-        </ul>
-    </nav>
-</header>
+<jsp:include page="header.jsp">
+    <jsp:param name="actual" value="overzicht"/>
+</jsp:include>
 <main>
     <h1>Kampen</h1>
-    <%
-        Collection<Kamp> kampen = (Collection<Kamp>) request.getAttribute("kampen");
-    %>
-        <table>
-            <thead>
-                <th>Jaar</th>
-                <th>Plaats</th>
-                <th>Kampthema</th>
-                <th>Score</th>
-                <th>Verwijder</th>
-            </thead>
-            <tbody>
-            <% for(Kamp kamp : kampen) { %>
-            <tr>
-                <td><%=kamp.getJaar()%></td>
-                <td><%=kamp.getPlaats()%></td>
-                <td><%=kamp.getThema()%></td>
-                <td><%=kamp.getScore()%></td>
-                <td><a href="Servlet?command=verwijder&jaar=<%=kamp.getJaar()%>&thema=<%=kamp.getThema()%>"> verwijderen </a> </td>
-            </tr>
-            <% } %>
-            </tbody>
-        </table>
-    <p>Aantal kampen: <%=request.getAttribute("aantal") %></p>
-    <p>Gemiddelde score kampen: <%=request.getAttribute("score") %></p>
+
+    <table>
+        <thead>
+        <th>Jaar</th>
+        <th>Plaats</th>
+        <th>Kampthema</th>
+        <th>Score</th>
+        <th>Verwijder</th>
+        </thead>
+        <c:forEach var="kamp" items="${alleKampen}">
+        <tbody>
+        <tr>
+            <td>${kamp.jaar}</td>
+            <td>${kamp.plaats}</td>
+            <td>${kamp.thema}</td>
+            <td>${kamp.score}</td>
+            <td><a href="Servlet?command=verwijder&jaar=${kamp.jaar}&thema=${kamp.thema}"> verwijderen </a></td>
+        </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    <p>Aantal kampen: ${aantal}</p>
+    <p>Gemiddelde score kampen: ${score} </p>
 </main>
 </body>
 </html>

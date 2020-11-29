@@ -1,5 +1,6 @@
 package Domain.db;
 
+import Domain.model.DomainException;
 import Domain.model.Kamp;
 
 import java.lang.reflect.Array;
@@ -41,6 +42,7 @@ public class KampDb {
     }
 
     public Kamp vindKamp(String jaar){
+        if (jaar.isEmpty()) throw new DomainException("Vul een jaar in.");
         for (Kamp kamp : kampen){
             if(kamp.getJaar().equals(jaar)){
                 return kamp;

@@ -8,19 +8,21 @@
     <title>Kampen | Toevoegen</title>
 </head>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li><a href="Servlet?command=home" > Home </a></li>
-            <li><a href="Servlet?command=overzicht"> Overzicht </a></li>
-            <li class="active"><a href="toevoegen.jsp"> Toevoegen </a></li>
-            <li><a href="zoekKamp.jsp"> Zoek Kamp</a></li>
-        </ul>
-    </nav>
-</header>
+<jsp:include page="header.jsp">
+    <jsp:param name="actual" value="voegToe"/>
+</jsp:include>
 <main>
     <h1>Kamp toevoegen</h1>
-    <form method="post" action="Servlet?command=voegtoe">
+    <c:if test="${not empty errors}">
+        <div class="error">
+            <ul>
+                <c:forEach items="${errors}" var="error">
+                    <li>${error}</li>
+                </c:forEach>
+            </ul>
+        </div>
+    </c:if>
+    <form method="post" action="Servlet?command=voegtoe" novalidate>
         <p>
             <label for="jaar">Jaar</label>
             <input id="jaar" name="jaar" type="text" placeholder="Jaar kamp" required="">
@@ -35,7 +37,7 @@
         </p>
         <p>
             <label for="Score">Score</label>
-            <input id="Score"  name="score" type="number" placeholder="Score op 10" required="">
+            <input id="Score"  name="score" type="number" placeholder="Score op 10" required="" nov>
         </p>
         <p>
             <button type="submit">Bevestig</button>

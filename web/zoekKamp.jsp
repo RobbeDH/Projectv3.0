@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: robbe
@@ -15,18 +16,20 @@
     <link rel="stylesheet" href="stijl.css">
     <title>Kamp zoeken</title>
 </head>
-<header>
-    <nav>
-        <ul>
-            <li><a href="Servlet?command=home"> Home </a></li>
-            <li><a href="Servlet?command=overzicht"> Overzicht </a></li>
-            <li><a href="toevoegen.jsp"> Toevoegen </a></li>
-            <li class="active"><a href="zoekKamp.jsp"> Zoek Kamp</a></li>
-        </ul>
-    </nav>
-</header>
+<jsp:include page="header.jsp">
+    <jsp:param name="actual" value="zoekForm"/>
+</jsp:include>
 <body>
 <h1>Kamp zoeken</h1>
+<c:if test="${not empty errors}">
+    <div class="error">
+        <ul>
+            <c:forEach items="${errors}" var="error">
+                <li>${error}</li>
+            </c:forEach>
+        </ul>
+    </div>
+</c:if>
 <form method="GET" action="Servlet">
     <p>
         <label for="jaar"> Jaar </label>
@@ -34,8 +37,9 @@
         <input type="hidden" name="command" value="zoekKamp">
     </p>
     <p>
-        <button type="submit">Zoek</button>
+        <button type="submit" class="knop">Zoek</button>
     </p>
+
 </form>
 </body>
 </html>

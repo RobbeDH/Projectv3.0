@@ -20,13 +20,10 @@
     </nav>
 </header>
 <main>
-    <%
-        Kamp kamp = (Kamp) request.getAttribute("kamp");
-    %>
     <h2>Kamp verwijderen</h2>
-    <p>Weet je zeker dat je <%=kamp.getJaar()%> <%=kamp.getThema()%> wilt verwijderen?</p>
+    <p>Weet je zeker dat je ${kamp.jaar} ${kamp.thema} wilt verwijderen?</p>
     <form action="Servlet?command=verwijderBevestig" method="post">
-        <input type="hidden" name="jaar" value="<%=kamp.getJaar()%>">
+        <input type="hidden" name="jaar" value="${kamp.jaar}">
         <button type="submit">Bevestig</button>
         <button type="submit">Annuleren</button>
     </form>

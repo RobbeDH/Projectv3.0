@@ -15,21 +15,15 @@
     <title>niet gevonden</title>
 </head>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li><a href="Servlet?command=home"> Home </a></li>
-            <li><a href="Servlet?command=overzicht"> Overzicht </a></li>
-            <li><a href="toevoegen.jsp"> Toevoegen </a></li>
-            <li><a href="zoekKamp.jsp"> Zoek Kamp</a></li>
-        </ul>
-    </nav>
-</header>
+<jsp:include page="header.jsp"/>
 <main>
     <h1>Kamp niet gevonden</h1>
     <p>
         Helaas,het kamp waarnaar je vraagt is niet gevonden.
         <br>
+    </p>
+    <p>
+        U heeft al ${zoekCount} kampen opgezocht
     </p>
 </main>
 </body>

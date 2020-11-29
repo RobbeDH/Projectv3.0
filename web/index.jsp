@@ -8,16 +8,9 @@
     <title>Kampen | Home</title>
 </head>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li class="active"><a href="Servlet?command=home"> Home </a></li>
-            <li><a href="Servlet?command=overzicht"> Overzicht </a></li>
-            <li><a href="toevoegen.jsp"> Toevoegen </a></li>
-            <li><a href="zoekKamp.jsp"> Zoek Kamp</a></li>
-        </ul>
-    </nav>
-</header>
+    <jsp:include page="header.jsp">
+        <jsp:param name="actual" value="Home"/>
+    </jsp:include>
 <main>
     <h1>Kampen</h1>
     <article>
