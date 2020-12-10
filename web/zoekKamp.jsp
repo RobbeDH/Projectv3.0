@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="stijl.css">
-    <title>Kamp zoeken</title>
+    <title>Kampen | zoeken</title>
 </head>
 <jsp:include page="header.jsp">
     <jsp:param name="actual" value="zoekForm"/>
@@ -37,7 +37,7 @@
         <input type="hidden" name="command" value="zoekKamp">
     </p>
     <p>
-        <button type="submit" class="knop">Zoek</button>
+        <button type="submit" id="submit" class="knop">Zoek</button>
     </p>
 
 </form>

@@ -6,9 +6,10 @@ public class Kamp {
     private int score;
     private String jaar;
 
-    public Kamp(){}
+    public Kamp() {
+    }
 
-    public Kamp(String plaats, String thema, int score, String jaar){
+    public Kamp(String plaats, String thema, int score, String jaar) {
         this.setJaar(jaar);
         this.setPlaats(plaats);
         this.setThema(thema);
@@ -32,12 +33,12 @@ public class Kamp {
     }
 
     public void setPlaats(String plaats) {
-        if (plaats.isEmpty()) throw new DomainException("Vul een plaats in.");
+        if (plaats == null || plaats.isEmpty()) throw new DomainException("Vul een plaats in.");
         this.plaats = plaats;
     }
 
     public void setThema(String thema) {
-        if (thema.isEmpty()) throw new DomainException("Vul een kampthema in.");
+        if (thema == null || thema.isEmpty()) throw new DomainException("Vul een kampthema in.");
         this.thema = thema;
     }
 
@@ -47,7 +48,13 @@ public class Kamp {
     }
 
     public void setJaar(String jaar) {
-        if (jaar.isEmpty()) throw new DomainException("Vul een jaar in.");
+        if (jaar == null || jaar.isEmpty()) throw new DomainException("Vul een jaar in.");
         this.jaar = jaar;
+    }
+
+    public void bewerkKamp(String plaats, String thema, int score) {
+        this.setPlaats(plaats);
+        this.setScore(score);
+        this.setThema(thema);
     }
 }

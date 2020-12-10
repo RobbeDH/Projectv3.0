@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -25,22 +28,26 @@
     <form method="post" action="Servlet?command=voegtoe" novalidate>
         <p>
             <label for="jaar">Jaar</label>
-            <input id="jaar" name="jaar" type="text" placeholder="Jaar kamp" required="">
+            <input id="jaar" name="jaar" type="text" placeholder="Jaar kamp"
+                   value="${jaarPreviousValue}">
         </p>
         <p>
             <label for="kampplaats">Kampplaats</label>
-            <input id="kampplaats" name="kampplaats" type="text" placeholder="Kampplaats" required="">
+            <input id="kampplaats" name="kampplaats" type="text" placeholder="Kampplaats"
+                    value="${plaatsPreviousValue}">
         </p>
         <p>
             <label for="kampthema">Kampthema</label>
-            <input id="kampthema" name="kampthema" type="text" placeholder="kampthema" required="">
+            <input id="kampthema" name="kampthema" type="text" placeholder="kampthema"
+                   value="${themaPreviousValue}">
         </p>
         <p>
-            <label for="Score">Score</label>
-            <input id="Score"  name="score" type="number" placeholder="Score op 10" required="" nov>
+            <label for="score">Score</label>
+            <input id="score" name="score" type="number" placeholder="Score op 10"
+                   value="${scorePreviousValue}">
         </p>
         <p>
-            <button type="submit">Bevestig</button>
+            <button id="submit" type="submit">Bevestig</button>
         </p>
     </form>
 </main>

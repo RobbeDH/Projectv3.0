@@ -24,6 +24,7 @@
         <th>Kampthema</th>
         <th>Score</th>
         <th>Verwijder</th>
+        <th>Bewerk</th>
         </thead>
         <c:forEach var="kamp" items="${alleKampen}">
         <tbody>
@@ -33,6 +34,7 @@
             <td>${kamp.thema}</td>
             <td>${kamp.score}</td>
             <td><a href="Servlet?command=verwijder&jaar=${kamp.jaar}&thema=${kamp.thema}"> verwijderen </a></td>
+            <td><a href="Servlet?command=bewerkForm&jaar=${kamp.jaar}&thema=${kamp.thema}"> bewerken </a></td>
         </tr>
         </c:forEach>
         </tbody>
