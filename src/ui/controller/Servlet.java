@@ -6,16 +6,14 @@ import Domain.model.Kamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
 @WebServlet("/Servlet")
 public class Servlet extends HttpServlet {
     private KampDb kampen = new KampDb();
+    ArrayList<Kamp> gezochteKampen = new ArrayList<>();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
@@ -70,22 +68,31 @@ public class Servlet extends HttpServlet {
     }
 
     private String bewerk(HttpServletRequest request, HttpServletResponse response) {
+        ArrayList<String> errors = new ArrayList<>();
         String jaar = request.getParameter("jaar");
-        String kampplaats = request.getParameter("kampplaats");
-        String kampthema = request.getParameter("kampthema");
-        String scoreform = request.getParameter("score");
-        int score = Integer.parseInt(scoreform);
+        Kamp kamp = kampen.vindKamp(jaar);
+        setPlaats(kamp, request, errors);
+        setThema(kamp, request, errors);
+        setScore(kamp, request, errors);
+        gezochteKampen.add(kamp);
 
-        kampen.vindKamp(jaar).bewerkKamp(kampplaats, kampthema, score);
 
-        request.setAttribute("alleKampen", kampen.getKampen());
-        request.setAttribute("aantal", kampen.getAantalKampen());
-        request.setAttribute("score", kampen.getGemiddeldeScore());
-        return "overzicht.jsp";
+        if (errors.size() == 0) {
+            try {
+                return overzicht(request, response);
+            } catch (DomainException e) {
+                errors.add(e.getMessage());
+            }
+        }
+        request.setAttribute("errors", errors);
+        return "bewerk.jsp";
     }
 
     private String bewerkForm(HttpServletRequest request, HttpServletResponse response) {
         String jaar = request.getParameter("jaar");
+        Kamp kamp = kampen.vindKamp(jaar);
+        HttpSession session = request.getSession();
+        session.setAttribute("kampen", gezochteKampen);
 
         request.setAttribute("kamp", kampen.vindKamp(jaar));
         return "bewerk.jsp";

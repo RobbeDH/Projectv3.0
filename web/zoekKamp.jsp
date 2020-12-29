@@ -37,7 +37,7 @@
         <input type="hidden" name="command" value="zoekKamp">
     </p>
     <p>
-        <button type="submit" id="submit" class="knop">Zoek</button>
+        <button type="submit" id="submit" class="Button">Zoek</button>
     </p>
 
 </form>

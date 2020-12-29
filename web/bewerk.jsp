@@ -13,6 +13,16 @@
 <body>
 <jsp:include page="header.jsp"/>
 <main>
+    <h1>Kamp bewerken</h1>
+    <c:if test="${not empty errors}">
+        <div class="error">
+            <ul>
+                <c:forEach items="${errors}" var="error">
+                    <li>${error}</li>
+                </c:forEach>
+            </ul>
+        </div>
+    </c:if>
     <form method="post" action="Servlet?command=bewerk" novalidate>
         <p>
             <label for="jaar">Jaar</label>
@@ -30,12 +40,31 @@
         </p>
         <p>
             <label for="Score">Score</label>
-            <input id="Score" name="score" type="number" placeholder="Score op 10" required="" ${kamp.score}>
+            <input id="Score" name="score" type="number" placeholder="Score op 10" required="" value="${kamp.score}">
         </p>
         <p>
-            <button type="submit">Update</button>
+            <button class="Button" type="submit">Update</button>
         </p>
     </form>
+    <h2>Recent bewerkte kampen</h2>
+    <table>
+        <thead>
+        <th>Jaar</th>
+        <th>Plaats</th>
+        <th>Kampthema</th>
+        <th>Score</th>
+        </thead>
+        <c:forEach var="kamp" items="${kampen}">
+        <tbody>
+        <tr>
+            <td>${kamp.jaar}</td>
+            <td>${kamp.plaats}</td>
+            <td>${kamp.thema}</td>
+            <td>${kamp.score}</td>
+        </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </main>
 </body>
 </html>

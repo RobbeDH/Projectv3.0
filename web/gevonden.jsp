@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Dylan
@@ -17,13 +18,22 @@
 <body>
 <jsp:include page="header.jsp"/>
 <main>
-    <h1>Kamp gevonden</h1>
+    <h1>Kamp ${kamp.jaar} gevonden</h1>
     <p>
         ${kamp.jaar} kampplaats: ${kamp.plaats}
     </p>
+    <c:choose>
+    <c:when test="${zoekCount == 1}">
     <p>
-        U heeft al ${zoekCount} kampen opgezocht
+        U heeft al ${zoekCount} kamp opgezocht
     </p>
+    </c:when>
+    <c:otherwise>
+        <p>
+            U heeft al ${zoekCount} kampen opgezocht
+        </p>
+    </c:otherwise>
+    </c:choose>
 </main>
 </body>
 </html>

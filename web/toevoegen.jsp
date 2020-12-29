@@ -47,7 +47,7 @@
                    value="${scorePreviousValue}">
         </p>
         <p>
-            <button id="submit" type="submit">Bevestig</button>
+            <button class="Button" id="submit" type="submit">Bevestig</button>
         </p>
     </form>
 </main>

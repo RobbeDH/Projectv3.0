@@ -38,7 +38,7 @@ public class TestKampZoeken {
 
         driver.findElement(By.id("submit")).click();
 
-        assertEquals("Kamp zoeken", driver.getTitle());
+        assertEquals("Kampen | zoeken", driver.getTitle());
         ArrayList<WebElement> lis = (ArrayList<WebElement>) driver.findElements(By.tagName("li"));
         assertTrue(containsWebElementsWithText(lis, "Vul een jaar in."));
 
@@ -46,9 +46,14 @@ public class TestKampZoeken {
 
     @Test
     public void test_Resultaat_wordt_getoond_Als_veld_juist_ingevuld_is(){
-        WebElement naamInput = driver.findElement(By.id("naam"));
+        WebElement naamInput = driver.findElement(By.id("jaar"));
         naamInput.clear();
         naamInput.sendKeys("2010");
+
+        driver.findElement(By.id("submit")).click();
+        assertEquals("Kampen | gevonden", driver.getTitle());
+        ArrayList<WebElement> hs = (ArrayList<WebElement>) driver.findElements(By.tagName("h1"));
+        assertTrue(containsWebElementsWithText(hs, "Kamp 2010 gevonden"));
     }
 
 

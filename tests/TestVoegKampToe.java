@@ -20,11 +20,11 @@ public class TestVoegKampToe {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\robbe\\Documents\\UCLL\\2de jaar\\Semester 1\\Web 2\\chromedriver.exe");
         //System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver");
         driver = new ChromeDriver();
-        driver.get(url + "zoekKamp.jsp");
+        driver.get(url + "toevoegen.jsp");
 
     }
 
-    @After
+    //@After
     public void clean() {
         driver.quit();
     }
@@ -52,9 +52,35 @@ public class TestVoegKampToe {
         assertEquals("Kampen | Toevoegen", driver.getTitle());
         ArrayList<WebElement> lis = (ArrayList<WebElement>) driver.findElements(By.tagName("li"));
         assertTrue(containsWebElementsWithText(lis, "Vul een jaar in."));
-        assertTrue(containsWebElementsWithText(lis, "Vul een kampplaats in."));
+        assertTrue(containsWebElementsWithText(lis, "Vul een plaats in."));
         assertTrue(containsWebElementsWithText(lis, "Vul een kampthema in."));
-        assertTrue(containsWebElementsWithText(lis, "Vul een score in."));
+        assertTrue(containsWebElementsWithText(lis, "Vul een score tussen 0 en 10 in!"));
+    }
+
+    @Test
+    public void test_Overzicht_toont_Als_alle_velden_correct_ingevuld_zijn(){
+        WebElement jaarInput = driver.findElement(By.id("jaar"));
+        jaarInput.clear();
+        jaarInput.sendKeys("2019");
+
+        WebElement kampplaatsInput = driver.findElement(By.id("kampplaats"));
+        kampplaatsInput.clear();
+        kampplaatsInput.sendKeys("Kaulille");
+
+        WebElement kampthemaInput = driver.findElement(By.id("kampthema"));
+        kampthemaInput.clear();
+        kampthemaInput.sendKeys("De vikingen");
+
+        WebElement scoreInput = driver.findElement(By.id("score"));
+        scoreInput.clear();
+        scoreInput.sendKeys("9");
+
+        driver.findElement(By.id("submit")).click();
+
+        assertEquals("Kampen | Overzicht", driver.getTitle());
+
+        ArrayList<WebElement> tds = (ArrayList<WebElement>) driver.findElements(By.tagName("td"));
+        assertTrue(containsWebElementsWithText(tds,"2019"));
     }
 
     private boolean containsWebElementsWithText(ArrayList<WebElement> elements, String text) {
